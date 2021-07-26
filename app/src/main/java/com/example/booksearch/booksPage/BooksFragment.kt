@@ -1,6 +1,7 @@
 package com.example.booksearch.booksPage
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,9 @@ class BooksFragment : Fragment() {
     private var progressBar: ProgressBar? = null
     private var settingsButton: ImageView? = null
 
+    private val handler = Handler()
+    private var runnable: Runnable? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,8 +57,13 @@ class BooksFragment : Fragment() {
                 if (newText?.isEmpty() != false) {
                     return false
                 }
-                progressBar?.visibility = View.VISIBLE
-                bookViewModel.getBooks(newText)
+                runnable?.let { handler.removeCallbacks(it) }
+
+                runnable = Runnable {
+                    progressBar?.visibility = View.VISIBLE
+                    bookViewModel.getBooks(newText)
+                }
+                runnable?.let { handler.postDelayed(it, 500) }
                 return true
             }
         })
