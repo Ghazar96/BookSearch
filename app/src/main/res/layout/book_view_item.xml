@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="138dp"
+	android:layout_margin="4dp"
+	app:cardCornerRadius="8dp"
+	app:cardElevation="0dp"
+	android:background="@color/white">
+
+	<RelativeLayout
+		android:background="@color/white"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<ImageView
+			android:id="@+id/imageView"
+			android:layout_width="96dp"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:background="@color/image_background_color"
+			android:src="@drawable/ic_img_image" />
+
+		<TextView
+			android:id="@+id/bookName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:layout_toEndOf="@id/imageView"
+			android:padding="3dp"
+			android:paddingEnd="20dp"
+			android:paddingStart="10dp"
+			android:paddingTop="10dp"
+			android:text="Book Title"
+			android:textColor="@color/text_color_black"
+			android:textSize="16sp" />
+
+		<TextView
+			android:id="@+id/authorName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/bookName"
+			android:layout_marginTop="3dp"
+			android:layout_toEndOf="@id/imageView"
+			android:padding="3dp"
+			android:paddingEnd="20dp"
+			android:paddingStart="10dp"
+			android:text="Publisher"
+			android:textColor="@color/text_color"
+			android:textSize="14sp" />
+	</RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
